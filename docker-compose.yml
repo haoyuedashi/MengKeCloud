@@ -1,0 +1,67 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: mengke-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mengkecloud}
+      POSTGRES_USER: ${POSTGRES_USER:-mengke_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ChangeMeDb123!}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: mengke-redis
+    restart: unless-stopped
+    profiles: ["redis"]
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: mengke-api
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      MENGKE_APP_ENV: production
+      MENGKE_DEBUG: "false"
+      MENGKE_AUTH_ENABLED: "true"
+      MENGKE_JWT_SECRET_KEY: ${MENGKE_JWT_SECRET_KEY:-ChangeMeJwtSecretAtLeast32CharsLong}
+
+      MENGKE_DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-mengke_user}:${POSTGRES_PASSWORD:-ChangeMeDb123!}@postgres:5432/${POSTGRES_DB:-mengkecloud}
+      MENGKE_ALEMBIC_DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-mengke_user}:${POSTGRES_PASSWORD:-ChangeMeDb123!}@postgres:5432/${POSTGRES_DB:-mengkecloud}
+
+      MENGKE_MESSAGE_BUS_BACKEND: ${MENGKE_MESSAGE_BUS_BACKEND:-memory}
+      MENGKE_REDIS_URL: redis://redis:6379/0
+
+      MENGKE_AI_ENABLED: ${MENGKE_AI_ENABLED:-false}
+      MENGKE_AI_REQUIRE_REDIS_WHEN_ENABLED: ${MENGKE_AI_REQUIRE_REDIS_WHEN_ENABLED:-false}
+      MENGKE_AI_API_KEY: ${MENGKE_AI_API_KEY:-}
+      MENGKE_AI_BASE_URL: ${MENGKE_AI_BASE_URL:-https://api.siliconflow.cn/v1}
+      MENGKE_AI_MODEL: ${MENGKE_AI_MODEL:-deepseek-ai/DeepSeek-V3.2}
+      MENGKE_AI_TIMEOUT_SECONDS: ${MENGKE_AI_TIMEOUT_SECONDS:-20}
+      MENGKE_AI_MAX_INPUT_CHARS: ${MENGKE_AI_MAX_INPUT_CHARS:-4000}
+
+      MENGKE_RECYCLE_WORKER_ENABLED: ${MENGKE_RECYCLE_WORKER_ENABLED:-true}
+
+      MENGKE_BOOTSTRAP_ADMIN_NAME: ${MENGKE_BOOTSTRAP_ADMIN_NAME:-老板}
+      MENGKE_BOOTSTRAP_ADMIN_PHONE: ${MENGKE_BOOTSTRAP_ADMIN_PHONE:-13800000001}
+      MENGKE_BOOTSTRAP_ADMIN_PASSWORD: ${MENGKE_BOOTSTRAP_ADMIN_PASSWORD:-ChangeMe123!}
+    ports:
+      - "8082:8001"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: mengke-web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "8081:80"
+
+volumes:
+  postgres_data:
