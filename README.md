@@ -44,17 +44,17 @@
 ## 系统截图
 
 <div align="center">
-  <img src="docs/images/1.png" alt="工作台" width="900" />
+  <img src="docs/images/1.png" alt="工作台" width="450" />
   <br/><br/>
-  <img src="docs/images/2.png" alt="工作台总览" width="900" />
+  <img src="docs/images/2.png" alt="工作台总览" width="450" />
   <br/><br/>
-  <img src="docs/images/3.png" alt="客户管理" width="900" />
+  <img src="docs/images/3.png" alt="客户管理" width="450" />
   <br/><br/>
-  <img src="docs/images/4.png" alt="公海池" width="900" />
+  <img src="docs/images/4.png" alt="公海池" width="450" />
   <br/><br/>
-  <img src="docs/images/5.png" alt="数据报表" width="900" />
+  <img src="docs/images/5.png" alt="数据报表" width="450" />
   <br/><br/>
-  <img src="docs/images/6.png" alt="报表总览" width="900" />
+  <img src="docs/images/6.png" alt="报表总览" width="450" />
 </div>
 
 ## 技术栈
