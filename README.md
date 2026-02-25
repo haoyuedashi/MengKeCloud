@@ -183,5 +183,10 @@ MengKeCloud/
 - AI 联通测试通过（如启用 AI）
 
 ---
-##作者
+## 📄 开源协议
+
+MIT License
+
+## 👨‍💻 作者
+
 haoyuedashi
