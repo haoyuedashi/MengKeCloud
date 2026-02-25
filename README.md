@@ -41,6 +41,22 @@
 - 平台设置：企业信息、回收规则、AI 模型参数与联通测试
 - 安全机制：JWT 认证、首登强制改密、管理员重置密码
 
+## 系统截图
+
+<div align="center">
+  <img src="docs/images/1.png" alt="工作台" width="900" />
+  <br/><br/>
+  <img src="docs/images/2.png" alt="工作台总览" width="900" />
+  <br/><br/>
+  <img src="docs/images/3.png" alt="客户管理" width="900" />
+  <br/><br/>
+  <img src="docs/images/4.png" alt="公海池" width="900" />
+  <br/><br/>
+  <img src="docs/images/5.png" alt="数据报表" width="900" />
+  <br/><br/>
+  <img src="docs/images/6.png" alt="报表总览" width="900" />
+</div>
+
 ## 技术栈
 
 - 前端：Vue 3、Vue Router、Element Plus、Vite、ECharts
