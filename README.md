@@ -43,19 +43,20 @@
 
 ## 系统截图
 
-<div align="center">
-  <img src="docs/images/1.png" alt="工作台" width="450" />
-  <br/><br/>
-  <img src="docs/images/2.png" alt="工作台总览" width="450" />
-  <br/><br/>
-  <img src="docs/images/3.png" alt="客户管理" width="450" />
-  <br/><br/>
-  <img src="docs/images/4.png" alt="公海池" width="450" />
-  <br/><br/>
-  <img src="docs/images/5.png" alt="数据报表" width="450" />
-  <br/><br/>
-  <img src="docs/images/6.png" alt="报表总览" width="450" />
-</div>
+<table>
+  <tr>
+    <td><img src="docs/images/1.png" alt="截图1" width="480" /></td>
+    <td><img src="docs/images/2.png" alt="截图2" width="480" /></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/3.png" alt="截图3" width="480" /></td>
+    <td><img src="docs/images/4.png" alt="截图4" width="480" /></td>
+  </tr>
+  <tr>
+    <td><img src="docs/images/5.png" alt="截图5" width="480" /></td>
+    <td><img src="docs/images/6.png" alt="截图6" width="480" /></td>
+  </tr>
+</table>
 
 ## 技术栈
 
