@@ -97,7 +97,7 @@
 1. 拉取代码
 
 ```bash
-git clone <your-repo-url> mengkecloud
+git clone https://github.com/haoyuedashi/MengKeCloud.git mengkecloud
 cd mengkecloud
 ```
 
